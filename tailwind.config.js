@@ -12,6 +12,7 @@ const config = {
    fontFamily: {
     sans: ['var(--font-sans)'],
     mono: ['var(--font-mono)'],
+    display: ['var(--font-display)'],
    },
    colors: {
     white: '#FFFFFF',
@@ -21,6 +22,12 @@ const config = {
      100: '#202020',
      200: '#262626',
     },
+    pink: '#FF4CAC',
+    violet: '#7054FE',
+    blue: '#4193FE',
+    green: '#32BB70',
+    gray: '#232323',
+    border: '#242424'
    },
   },
  },
