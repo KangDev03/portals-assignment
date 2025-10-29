@@ -4,31 +4,38 @@ import { extendVariants } from "@heroui/system";
 import { cn } from "@heroui/theme";
 
 const colorClasses = [
-  "bg-pink text-white",
-  "bg-violet text-white",
-  "bg-blue text-white",
-  "bg-green text-white",
+  "bg-pink",
+  "bg-violet",
+  "bg-blue",
+  "bg-green",
+  "bg-gray",
 ];
 
 const StyledAvatar = extendVariants(BaseAvatar, {
   variants: {
+    base: {
+      default: { base: 'text-white size-7.5 border border-border' }
+    },
     color: {
-      "blue": { base: "bg-blue text-white" },
+      "blue": { base: "bg-blue " },
+      "gray": { base: "bg-gray " },
     },
     radius: {
       none: { base: "rounded-none" },
       md: { base: "rounded-md" },
+      lg: { base: "rounded-lg" },
       xl: { base: "rounded-xl" },
     },
     size: {
       sm: { base: "size-4.5 text-sm" },
       md: { base: "size-6 text-md" },
-      lg: { base: "size-8 text-lg" },
+      lg: { base: "size-8 text-sm" },
       xl: { base: "size-9 text-sm" },
     },
   },
   defaultVariants: {
-    color: "blue",
+    base: "default",
+    color: "gray",
     radius: "xl",
     size: "xl",
   },

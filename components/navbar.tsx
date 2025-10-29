@@ -51,11 +51,11 @@ export const Navbar = () => {
           </NextLink>
           <p className="text-inherit">Back to Dashboard</p>
           <AvatarGroup>
+            <Avatar name="An" />
             <Avatar name="Jane" />
-            <Avatar name="An" />
-            <Avatar name="Hoang" />
-            <Avatar name="Kang" />
-            <Avatar name="An" />
+            <Avatar name="Chau" />
+            <Avatar name="Binh" />
+            <Avatar name="Duong" />
             <Avatar name="An" />
           </AvatarGroup>
         </NavbarBrand>

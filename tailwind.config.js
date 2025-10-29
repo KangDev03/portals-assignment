@@ -23,11 +23,15 @@ const config = {
      200: '#262626',
     },
     pink: '#FF4CAC',
-    violet: '#7054FE',
+    violet: {
+      DEFAULT: '#7054FE',
+      10: '#EBEBFD3D',
+      20: "#5E53F5"
+    },
     blue: '#4193FE',
     green: '#32BB70',
     gray: '#232323',
-    border: '#242424'
+    border: '#414141'
    },
   },
  },
