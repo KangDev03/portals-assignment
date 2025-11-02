@@ -2,8 +2,8 @@ import { cn, tv } from "@heroui/theme";
 
 interface BorderBoxProps extends React.HTMLAttributes<HTMLDivElement> {
   wrapperClass?: string;
-  variant?: "primary" | "violet-transparent";
-  rounded?: "md" | "lg";
+  variant?: "primary" | "secondary" | "red" | "light-red" | "violet-transparent" | "green-gradient";
+  rounded?: "md" | "lg" | "sm";
 }
 
 const borderBox = tv({
@@ -15,9 +15,14 @@ const borderBox = tv({
   variants: {
     variant: {
       primary: { border: "bg-gradient-to-br from-[#3E3E3E] to-[#2D2C2F00]", wrapper: "bg-black-200" },
+      secondary: { border: "bg-gradient-to-br from-[#2E2E2E] to -[#000000]", wrapper: "bg-[#272728]" },
+      red: { border: "bg-gradient-to-br from-[#772828] to-[#891B1B]", wrapper: "bg-[#351414]" },
+      'light-red': { border: "bg-gradient-to-br from-[#B85858] to-[#57575700]", wrapper: "bg-[#FFA1A133]" },
       'violet-transparent': { border: "bg-violet-10", wrapper: "bg-white" },
+      'green-gradient': { border: "bg-gradient-to-br from-[#BEF2DA] to-[#1ABC72]", wrapper: "bg-green-20" },
     },
     rounded: {
+      sm: { border: "p-[1px] rounded-lg" },
       md: { border: "p-[1px] rounded-xl" },
       lg: { border: "p-[5px] rounded-[18px]" },
     },

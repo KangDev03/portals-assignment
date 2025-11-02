@@ -14,11 +14,15 @@ const colorClasses = [
 const StyledAvatar = extendVariants(BaseAvatar, {
   variants: {
     base: {
-      default: { base: 'text-white size-7.5 border border-border' }
+      default: { base: 'text-white border border-border' }
     },
     color: {
       "blue": { base: "bg-blue " },
       "gray": { base: "bg-gray " },
+    },
+    border: {
+      true: { base: "border border-border" },
+      false: { base: "border-0" },
     },
     radius: {
       none: { base: "rounded-none" },
@@ -28,7 +32,7 @@ const StyledAvatar = extendVariants(BaseAvatar, {
     },
     size: {
       sm: { base: "size-4.5 text-sm" },
-      md: { base: "size-6 text-md" },
+      md: { base: "size-7.5 text-md" },
       lg: { base: "size-8 text-sm" },
       xl: { base: "size-9 text-sm" },
     },
@@ -36,6 +40,7 @@ const StyledAvatar = extendVariants(BaseAvatar, {
   defaultVariants: {
     base: "default",
     color: "gray",
+    border: true,
     radius: "xl",
     size: "xl",
   },

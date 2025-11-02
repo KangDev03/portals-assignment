@@ -1,3 +1,4 @@
+'use client';
 import {
   Navbar as HeroUINavbar,
   NavbarContent,
@@ -50,13 +51,28 @@ export const Navbar = () => {
             <PortalLogo />
           </NextLink>
           <p className="text-inherit">Back to Dashboard</p>
-          <AvatarGroup>
-            <Avatar name="An" />
-            <Avatar name="Jane" />
-            <Avatar name="Chau" />
-            <Avatar name="Binh" />
-            <Avatar name="Duong" />
-            <Avatar name="An" />
+          <AvatarGroup
+            max={4}
+            total={3}
+            renderCount={(count) => (
+              <Avatar
+                name={`${count} +`}
+                border={false}
+                size={"md"}
+                radius={"lg"}
+                className={"bg-gray text-white/60"}
+                classNames={{
+                  base: "text-sm font-medium",
+                }}
+              />
+            )}
+          >
+            <Avatar name="An" size={"lg"} radius={"lg"} />
+            <Avatar name="Jane" size={"lg"} radius={"lg"} />
+            <Avatar name="Chau" size={"lg"} radius={"lg"} />
+            <Avatar name="Binh" size={"lg"} radius={"lg"} />
+            <Avatar name="Duong" size={"lg"} radius={"lg"} />
+            <Avatar name="An" size={"lg"} radius={"lg"} />
           </AvatarGroup>
         </NavbarBrand>
       </NavbarContent>
@@ -66,9 +82,7 @@ export const Navbar = () => {
         justify="end"
       >
         <NavbarItem className="hidden sm:flex gap-1 items-center justify-center">
-          <BorderBox>
-            <MoonIcon />
-          </BorderBox>
+          <ThemeSwitch />
 
           <div className="w-2.5 h-0 border -rotate-90 opacity-20 rounded-full"></div>
 
