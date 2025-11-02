@@ -10,99 +10,6 @@ import { CustomButton } from "@/components/ui/button";
 import EventTimeline from "@/components/event-timeline";
 import { MyCard } from "@/components/ui/card";
 
-const mockEvents = [
-  {
-    dateLabel: "Today",
-    date: "Wed, 7 May",
-    events: [
-      {
-        id: 1,
-        startTime: "11:00 AM",
-        endTime: "12:30 PM",
-        status: "Now",
-        types: ["In-person", "Virtual"],
-        title: "Meeting about fitness after work",
-        description:
-          "Lorem ipsum is placeholder text commonly used in the graphic, print...",
-        image: "/images/meeting-fitness.jpg",
-        host: {
-          name: "Tom Davis",
-          avatar: "/avatars/tom-davis.png",
-        },
-        speakers: [
-          { id: 1, name: "Speaker 1", avatar: "/avatars/s1.png" },
-          { id: 2, name: "Speaker 2", avatar: "/avatars/s2.png" },
-        ],
-      },
-      {
-        id: 2,
-        startTime: "14:00 PM",
-        endTime: "15:00 PM",
-        status: "Upcoming",
-        types: ["Virtual"],
-        title: "Meeting about fitness after work",
-        description:
-          "Lorem ipsum is placeholder text commonly used in the graphic, print...",
-        image: "/images/meeting-fitness.jpg",
-        host: {
-          name: "Tom Davis",
-          avatar: "/avatars/tom-davis.png",
-        },
-        speakers: [
-          { id: 1, name: "Speaker 1", avatar: "/avatars/s1.png" },
-          { id: 2, name: "Speaker 2", avatar: "/avatars/s2.png" },
-          { id: 3, name: "Speaker 3", avatar: "/avatars/s3.png" },
-        ],
-      },
-    ],
-  },
-  {
-    dateLabel: "8 May 2024",
-    date: "Thursday",
-    events: [
-      {
-        id: 3,
-        startTime: "09:00 AM",
-        endTime: "10:30 AM",
-        status: "Upcoming",
-        types: ["Virtual"],
-        title: "Design system weekly sync",
-        description:
-          "Discussion about new UI components and accessibility improvements.",
-        image: "/images/design-meeting.jpg",
-        host: {
-          name: "Sophia Lee",
-          avatar: "/avatars/sophia-lee.png",
-        },
-        speakers: [
-          { id: 1, name: "Ethan", avatar: "/avatars/ethan.png" },
-          { id: 2, name: "Mia", avatar: "/avatars/mia.png" },
-        ],
-      },
-      {
-        id: 4,
-        startTime: "16:00 PM",
-        endTime: "17:00 PM",
-        status: "Upcoming",
-        types: ["In-person"],
-        title: "Product retrospective meeting",
-        description:
-          "Review last sprint's achievements and plan improvements for the next cycle.",
-        image: "/images/retrospective.jpg",
-        host: {
-          name: "Daniel Green",
-          avatar: "/avatars/daniel-green.png",
-        },
-        speakers: [
-          { id: 1, name: "Sarah", avatar: "/avatars/sarah.png" },
-          { id: 2, name: "John", avatar: "/avatars/john.png" },
-        ],
-      },
-    ],
-  },
-];
-
-
 const avatars = [
   { name: "Jane", src: "/avatar/person-1.jpg" },
   { name: "An", src: "/avatar/person-2.jpg" },
@@ -260,6 +167,8 @@ const RecentActivity = () => {
     { user: "Amalia", action: "avarded badge during event", time: "10 mins ago", type: "badge" as ActivityType },
     { user: "Amalia", action: "avarded badge during event", time: "10 mins ago", type: "plus" as ActivityType },
     { user: "Amalia", action: "avarded badge during event", time: "10 mins ago", type: "badge" as ActivityType },
+    { user: "Amalia", action: "avarded badge during event", time: "10 mins ago", type: "plus" as ActivityType },
+    { user: "Amalia", action: "avarded badge during event", time: "10 mins ago", type: "badge" as ActivityType },
     { user: "Henry", action: "joined event", time: "12 mins ago", type: "plus" as ActivityType },
   ];
 
@@ -269,10 +178,11 @@ const RecentActivity = () => {
   };
 
   return (
-    <aside className="relative mt-16.75 bg-black-90 rounded-2xl border border-gray-10 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
+    <MyCard className="p-0 gap-0 relative mt-16.75 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
       <h4 className="text-base font-medium mt-5 mb-4 mx-5 text-left">Recent activity</h4>
-      <div>
+
+      <div className="max-h-[calc(4*56px)] overflow-y-auto scrollbar-hide">
         {activities.map((a, i) => {
           const { bg: iconBg, icon: IconComponent } = iconMap[a.type] || {
             bg: "bg-gray-500",
@@ -287,7 +197,7 @@ const RecentActivity = () => {
                 </div>
               </div>
               <div className="flex flex-col text-left">
-                <p className="text-base">
+                <p className="text-base tracking-[0px] leading-[100%]">
                   {a.user} {a.action} <span className="text-base text-white/60">{a.time}</span>
                 </p>
               </div>
@@ -295,7 +205,7 @@ const RecentActivity = () => {
           )
         })}
       </div>
-    </aside>
+    </MyCard>
   );
 };
 

@@ -5,8 +5,8 @@ import { cn } from "@heroui/theme";
 
 export const MyCard = extendVariants(BaseCard, {
   variants: {
-    base: {
-      default: { base: "w-full h-fit bg-black-80 border border-gray-10 rounded-2xl" },
+    variant: {
+      solid: { base: "w-full h-fit bg-black-80 border border-gray-10 rounded-2xl" },
     },
     size: {
       sm: { base: "p-2 gap-2" },
@@ -15,6 +15,7 @@ export const MyCard = extendVariants(BaseCard, {
     },
   },
   defaultVariants: {
+    variant: "solid",
     size: "md",
   },
 });

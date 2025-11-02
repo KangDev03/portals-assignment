@@ -13,8 +13,8 @@ const colorClasses = [
 
 const StyledAvatar = extendVariants(BaseAvatar, {
   variants: {
-    base: {
-      default: { base: 'text-white border border-border' }
+    variant: {
+      solid: { base: 'text-white border border-border'}
     },
     color: {
       "blue": { base: "bg-blue " },
@@ -38,7 +38,7 @@ const StyledAvatar = extendVariants(BaseAvatar, {
     },
   },
   defaultVariants: {
-    base: "default",
+    variant: "solid",
     color: "gray",
     border: true,
     radius: "xl",
