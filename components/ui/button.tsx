@@ -19,6 +19,7 @@ export const CustomButton = extendVariants(BaseButton, {
     rounded: {
       none: "rounded-none",
       md: "rounded-md",
+      lg: "rounded-lg",
       xl: "rounded-xl",
       full: "rounded-full",
     },

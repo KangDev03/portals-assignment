@@ -4,11 +4,10 @@ import { Image } from "@heroui/image";
 import { Avatar } from "@/components/ui/avatar";
 import { AvatarGroup } from "@heroui/avatar";
 import { Link } from "@heroui/link";
-import { Button } from "@heroui/button";
-import { Card } from "@heroui/card";
 import { CustomButton } from "@/components/ui/button";
 import EventTimeline from "@/components/event-timeline";
 import { MyCard } from "@/components/ui/card";
+import EventCalendar from "@/components/event-calendar";
 
 const avatars = [
   { name: "Jane", src: "/avatar/person-1.jpg" },
@@ -164,12 +163,19 @@ const RecentActivity = () => {
   type ActivityType = 'badge' | 'plus';
 
   const activities = [
-    { user: "Amalia", action: "avarded badge during event", time: "10 mins ago", type: "badge" as ActivityType },
-    { user: "Amalia", action: "avarded badge during event", time: "10 mins ago", type: "plus" as ActivityType },
-    { user: "Amalia", action: "avarded badge during event", time: "10 mins ago", type: "badge" as ActivityType },
-    { user: "Amalia", action: "avarded badge during event", time: "10 mins ago", type: "plus" as ActivityType },
-    { user: "Amalia", action: "avarded badge during event", time: "10 mins ago", type: "badge" as ActivityType },
-    { user: "Henry", action: "joined event", time: "12 mins ago", type: "plus" as ActivityType },
+    { user: "Amalia", action: "avarded badge during event", time: "10mins", type: "badge" as ActivityType },
+    { user: "Amalia", action: "avarded badge during event", time: "10mins", type: "plus" as ActivityType },
+    { user: "Amalia", action: "avarded badge during event", time: "10mins", type: "badge" as ActivityType },
+    { user: "Amalia", action: "avarded badge during event", time: "10mins", type: "plus" as ActivityType },
+    { user: "Amalia", action: "avarded badge during event", time: "10mins", type: "badge" as ActivityType },
+    { user: "Amalia", action: "avarded badge during event", time: "10mins", type: "badge" as ActivityType },
+    { user: "Amalia", action: "avarded badge during event", time: "10mins", type: "badge" as ActivityType },
+    { user: "Amalia", action: "avarded badge during event", time: "10mins", type: "badge" as ActivityType },
+    { user: "Amalia", action: "avarded badge during event", time: "10mins", type: "badge" as ActivityType },
+    { user: "Amalia", action: "avarded badge during event", time: "10mins", type: "badge" as ActivityType },
+    { user: "Amalia", action: "avarded badge during event", time: "10mins", type: "badge" as ActivityType },
+    { user: "Amalia", action: "avarded badge during event", time: "10mins", type: "badge" as ActivityType },
+    { user: "Henry", action: "joined event", time: "12mins", type: "plus" as ActivityType },
   ];
 
   const iconMap: Record<ActivityType, { bg: string; icon: typeof RocketIcon }> = {
@@ -290,6 +296,7 @@ export default function PortalPage() {
         <div className="flex flex-col gap-5">
           <RecentActivity />
           <TimeZone />
+          <EventCalendar />
         </div>
       </div>
 

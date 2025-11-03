@@ -19,3 +19,9 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+.my-calendar [data-slot='base'] > div:not([data-slot]) {
+  width: 100% !important;
+  height: auto !important;
+  /* overflow: visible !important; */
+}
