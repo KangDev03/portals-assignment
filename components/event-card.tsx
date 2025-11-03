@@ -50,7 +50,7 @@ const EventCard = ({
         className="rounded-lg object-cover"
       />
       <div className="flex-1 flex flex-col">
-        <div className="flex items-center gap-2 text-xs font-medium text-white flex-wrap">
+        <div className="flex items-center gap-2 text-xs font-medium flex-wrap">
           <span>
             {startTime} - {endTime}
           </span>
@@ -80,10 +80,10 @@ const EventCard = ({
         </div>
 
         <h3 className="text-lg font-medium text-left">{title}</h3>
-        <p className="text-xs text-white/60 line-clamp-1 text-left">{description}</p>
+        <p className="text-xs opacity-60 line-clamp-1 text-left">{description}</p>
 
         <div className="flex items-center gap-1.5 text-sm mt-1">
-          <span className="text-xs font-normal text-white/40">Host:</span>
+          <span className="text-xs font-normal opacity-40">Host:</span>
           <div className="flex items-center gap-1.5">
             <Avatar
               src={host.avatar}
@@ -91,10 +91,10 @@ const EventCard = ({
               size="sm"
               radius="md"
             />
-            <span className="text-white text-xs">{host.name}</span>
+            <span className="text-xs">{host.name}</span>
           </div>
 
-          <span className="text-white/40 ml-3">Speakers:</span>
+          <span className="opacity-40 ml-3">Speakers:</span>
           <div className="flex -space-x-1">
             {speakers.map((s) => (
               <Avatar

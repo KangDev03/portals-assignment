@@ -8,6 +8,7 @@ import { CustomButton } from "@/components/ui/button";
 import EventTimeline from "@/components/event-timeline";
 import { MyCard } from "@/components/ui/card";
 import EventCalendar from "@/components/event-calendar";
+import { ScrollShadow } from "@heroui/scroll-shadow";
 
 const avatars = [
   { name: "Jane", src: "/avatar/person-1.jpg" },
@@ -78,8 +79,8 @@ const RecentlyUpdated = () => {
             key={post.id}
             className="relative"
           >
-            <div className="absolute -top-2.5 left-3 w-[186px] h-[131px] -rotate-[3deg] rounded-2xl p-[1px] bg-gradient-to-br from-[#3E3E3E] to-[#2D2C2F00] -z-0">
-              <div className="w-full h-full bg-black-90 rounded-2xl"></div>
+            <div className="absolute -top-2.5 left-3 w-[186px] h-[131px] -rotate-[3deg] rounded-2xl dark:p-[1px] dark:bg-gradient-to-br from-[#3E3E3E] to-[#2D2C2F00] -z-0">
+              <div className="w-full h-full bg-gray-20 dark:bg-black-90 rounded-2xl"></div>
             </div>
 
             <div className="relative w-full h-[205px] rounded-2xl overflow-hidden">
@@ -109,10 +110,10 @@ const RecentlyUpdated = () => {
                 </div>
 
                 <div className="text-left">
-                  <h5 className="font-medium text-lg line-clamp-2">
+                  <h5 className="text-white dark:text-white font-medium text-lg line-clamp-2">
                     {post.title}
                   </h5>
-                  <p className="text-xs font-normal opacity-30 mt-0.5 mb-1.25">
+                  <p className="text-white dark:text-white text-xs font-normal opacity-30 mt-0.5 mb-1.25">
                     Updated {post.updated}
                   </p>
                   <Avatar
@@ -138,16 +139,16 @@ const Events = () => {
     <section>
       <div className="flex flex-row justify-between mb-8">
         <h4 className="text-xl font-medium text-left">Events</h4>
-        <div className="flex flex-row gap-2.5">
-          <CustomButton endContent={<PlusIcon />} variant="secondary">
+        <div className="flex flex-row items-center gap-2.5">
+          <CustomButton endContent={<PlusIcon />} variant="secondary" className="hidden dark:flex">
             Submit Event
           </CustomButton>
-          <div className="flex flex-row px-1 gap-2">
-            <BorderBox variant="green-gradient" rounded="sm">
+          <div className="flex flex-row px-1 py-1 gap-2 bg-white dark:bg-transparent rounded-[10px] shadow-[1px_5px_17px_0px_#0000000D]">
+            <BorderBox variant="green-gradient" rounded="sm" className="size-7.5">
               <ListIcon />
             </BorderBox>
-            <BorderBox rounded="sm">
-              <LayoutGrid />
+            <BorderBox variant="light-primary" rounded="sm" className="size-7.5">
+              <LayoutGrid className="text-black dark:text-white opacity-30 dark:opacity-100"/>
             </BorderBox>
           </div>
         </div>
@@ -184,33 +185,31 @@ const RecentActivity = () => {
   };
 
   return (
-    <MyCard className="p-0 gap-0 relative mt-16.75 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
+    <MyCard className="p-0 gap-0 mt-16.75 overflow-hidden">
       <h4 className="text-base font-medium mt-5 mb-4 mx-5 text-left">Recent activity</h4>
-
-      <div className="max-h-[calc(4*56px)] overflow-y-auto scrollbar-hide">
-        {activities.map((a, i) => {
-          const { bg: iconBg, icon: IconComponent } = iconMap[a.type] || {
-            bg: "bg-gray-500",
-            icon: RocketIcon,
-          };
-          return (
-            <div key={i} className=" flex items-center py-2 px-5 gap-3">
-              <div className="relative">
-                <Avatar name={a.user} size="lg" radius="lg" className="flex-shrink-0" />
-                <div className={`absolute flex justify-center items-center size-3.5 ${iconBg} border border-black rounded-full -bottom-0.75 -right-1.25`}>
-                  <IconComponent />
+      <ScrollShadow hideScrollBar className="w-[283px] max-h-[calc(4*56px)]" size={120}>
+          {activities.map((a, i) => {
+            const { bg: iconBg, icon: IconComponent } = iconMap[a.type] || {
+              bg: "bg-gray-500",
+              icon: RocketIcon,
+            };
+            return (
+              <div key={i} className=" flex items-center py-2 px-5 gap-3">
+                <div className="relative">
+                  <Avatar name={a.user} size="lg" radius="lg" className="flex-shrink-0" />
+                  <div className={`absolute flex justify-center items-center size-3.5 ${iconBg} border border-black rounded-full -bottom-0.75 -right-1.25`}>
+                    <IconComponent />
+                  </div>
+                </div>
+                <div className="flex flex-col text-left">
+                  <p className="text-base tracking-[0px] leading-[100%]">
+                    {a.user} {a.action} <span className="text-base opacity-60">{a.time}</span>
+                  </p>
                 </div>
               </div>
-              <div className="flex flex-col text-left">
-                <p className="text-base tracking-[0px] leading-[100%]">
-                  {a.user} {a.action} <span className="text-base text-white/60">{a.time}</span>
-                </p>
-              </div>
-            </div>
-          )
-        })}
-      </div>
+            )
+          })}
+      </ScrollShadow>
     </MyCard>
   );
 };
@@ -218,8 +217,8 @@ const RecentActivity = () => {
 const TimeZone = () => {
   return (
     <MyCard size="lg" className="gap-2 flex flex-row items-center text-wrap">
-      <Clock />
-      <p className="text-base font-normal text-white/50">Time in your location</p>
+      <Clock className="text-inherit"/>
+      <p className="text-base font-normal opacity-50">Time in your location</p>
       <span className="text-base font-normal ml-0.75">1:14 PM</span>
     </MyCard>
   )
@@ -277,12 +276,17 @@ export default function PortalPage() {
             {
               socialIcons.map(({ icon: Icon, label }) => (
                 <Link key={label} isExternal aria-label={label} className="mr-4">
-                  <Icon className="text-white opacity-30" />
+                  <Icon className="text-black dark:text-white opacity-30" />
                 </Link>
               ))
             }
             <CustomButton endContent={<PlusIcon />}>
+            <p className="hidden dark:block">
               Join
+            </p>
+            <p className="block dark:hidden">
+              Leave
+            </p>
             </CustomButton>
           </div>
         </div>
@@ -296,7 +300,7 @@ export default function PortalPage() {
         <div className="flex flex-col gap-5">
           <RecentActivity />
           <TimeZone />
-          <EventCalendar />
+          {/* <EventCalendar /> */}
         </div>
       </div>
 

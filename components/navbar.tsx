@@ -36,7 +36,7 @@ import { AvatarGroup } from "@heroui/avatar";
 export const Navbar = () => {
   return (
     <HeroUINavbar
-      maxWidth="md"
+      maxWidth="xl"
       position="sticky"
       className=""
       classNames={{
@@ -50,7 +50,7 @@ export const Navbar = () => {
           <NextLink className="size-9 flex justify-center items-center gap-1 bg-black-100 rounded-[14px]" href="/portal">
             <PortalLogo />
           </NextLink>
-          <p className="text-inherit">Back to Dashboard</p>
+          <p className="text-white dark:text-white">Back to Dashboard</p>
           <AvatarGroup
             max={4}
             total={3}
@@ -84,7 +84,7 @@ export const Navbar = () => {
         <NavbarItem className="hidden sm:flex gap-1 items-center justify-center">
           <ThemeSwitch />
 
-          <div className="w-2.5 h-0 border -rotate-90 opacity-20 rounded-full"></div>
+          <div className="w-2.5 h-0 border-white border -rotate-90 opacity-20 rounded-full"></div>
 
           <BorderBox>
             <BellIcon />
